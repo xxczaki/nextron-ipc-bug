@@ -1,0 +1,120 @@
+{
+    "name": "example-app",
+    "productName": "Example app",
+    "version": "0.0.1",
+    "description": "Nextron example",
+    "license": "MIT",
+    "author": {
+        "name": "Antoni Kepinski",
+        "email": "a@kepinski.me",
+        "url": "https://kepinski.me"
+    },
+    "main": "app/background.js",
+    "scripts": {
+        "dev": "nextron",
+        "build": "nextron build",
+        "postinstall": "electron-builder install-app-deps",
+        "release": "np",
+        "test": "xo"
+    },
+    "dependencies": {
+        "@chakra-ui/core": "^0.7.0",
+        "@emotion/core": "^10.0.28",
+        "@emotion/styled": "^10.0.27",
+        "electron-serve": "^1.0.0",
+        "electron-store": "^5.1.1",
+        "electron-unhandled": "^3.0.2",
+        "emotion-theming": "^10.0.27"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.9.6",
+        "@types/react": "^16.9.35",
+        "@typescript-eslint/eslint-plugin": "^2.33.0",
+        "@typescript-eslint/parser": "^2.33.0",
+        "electron": "^9.0.0-beta.24",
+        "electron-builder": "^22.6.0",
+        "eslint-config-xo-react": "^0.23.0",
+        "eslint-config-xo-typescript": "^0.29.0",
+        "eslint-plugin-react": "^7.20.0",
+        "eslint-plugin-react-hooks": "^4.0.2",
+        "json-schema": "^0.2.5",
+        "next": "^9.4.0",
+        "next-fonts": "^1.1.0",
+        "nextron": "^5.14.5",
+        "np": "^6.2.3",
+        "react": "16.13.1",
+        "react-dom": "16.13.1",
+        "typescript": "^3.9.2",
+        "xo": "^0.30.0"
+    },
+    "xo": {
+        "envs": [
+            "node",
+            "browser"
+        ],
+        "extends": [
+            "xo-typescript",
+            "xo-react"
+        ],
+        "rules": {
+            "import/no-unassigned-import": "off",
+            "no-unused-expressions": "off",
+            "import/extensions": "off",
+            "unicorn/string-content": "off",
+            "react/jsx-child-element-spacing": "off",
+            "no-eval": "off",
+            "@typescript-eslint/restrict-template-expressions": "off",
+            "@typescript-eslint/prefer-readonly-parameter-types": "off",
+            "@typescript-eslint/no-unsafe-return": "off",
+            "@typescript-eslint/no-unsafe-call": "off",
+            "@typescript-eslint/no-unsafe-member-access": "off"
+        },
+        "settings": {
+            "react": {
+                "version": "16.13"
+            }
+        },
+        "extensions": [
+            "tsx",
+            "ts"
+        ],
+        "ignores": [
+            "renderer/babel.config.js",
+            "renderer/next.config.js"
+        ]
+    },
+    "np": {
+        "publish": false,
+        "releaseDraft": false
+    },
+    "build": {
+        "mac": {
+            "darkModeSupport": true
+        },
+        "dmg": {
+            "iconSize": 160,
+            "contents": [
+                {
+                    "x": 180,
+                    "y": 170
+                },
+                {
+                    "x": 480,
+                    "y": 170,
+                    "type": "link",
+                    "path": "/Applications"
+                }
+            ]
+        },
+        "linux": {
+            "target": [
+                "AppImage",
+                "deb",
+                "rpm"
+            ]
+        },
+        "win": {
+            "verifyUpdateCodeSignature": false
+        }
+    }
+}
